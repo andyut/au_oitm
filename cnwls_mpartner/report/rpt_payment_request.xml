@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="cnw_sap_purchase_payment_request_report_document">
+
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="reqpayment">
+                    <div style="width:264px;height:340px; display: inline-table;">
+                        <table   style="border: 2px solid black;">
+                            <tr>
+                                <th  class="table-active text-center"   style="border: 2px solid black;">
+                                                        REQUEST PAYMENT
+                                    <br/>
+                                    <h2><span t-field="reqpayment.company_id"/></h2>
+                                    <br/>
+                                    <span t-field="reqpayment.payment_reqno"/>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td  style="border: 2px solid black;">
+                                    <strong>Request Payment :</strong>
+                                    <strong>
+                                    <t t-esc="reqpayment.payment_reqdate"/>
+                                    
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td  style="border: 2px solid black;">
+                                    <strong>PO No :</strong>
+                                    <t t-esc="reqpayment.docnum"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td  style="border: 2px solid black;">
+                                    <strong>ETA date :</strong><t t-esc="reqpayment.doceta"/>
+                                     
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center align-middle"  colspan="2"  style="border: 2px solid black;">
+                                    <strong> 
+                                       <t t-esc="reqpayment.cardname"/> 
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td  style="border: 2px solid black;"> 
+                                    <strong>
+                                    <h3>
+                                        <span t-field="reqpayment.doccur"/>
+                                        <span t-field="reqpayment.docftotal"/>
+                                    </h3>
+                                    </strong>
+
+                                </td>
+                            </tr>
+                           
+                            <tr>
+                                <td class="text-center align-middle"  style="border: 2px solid black;">
+                                <t t-esc="reqpayment.pay_reqnote"/> <br/>
+                                    <img alt="Barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('QR', reqpayment.payment_reqno, 150,150)" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <report id="cnw_sap_purchase_payment_request_report" name="cnw_purchase.cnw_sap_purchase_payment_request_report_document" 
+    paperformat="cnw_purchase.cnw_paperformat_paymentrequest"
+    model="cnw.sap.purchase" string="Print Payment Request" report_type="qweb-pdf"/>
+
+
+</odoo>

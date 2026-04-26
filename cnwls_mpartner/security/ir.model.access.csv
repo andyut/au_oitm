@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acl_cnwls_mpartner_home,acl_cnwls_mpartner_home,model_cnwls_mpartner_home,,1,1,1,1
+acl_cnwls_mpartner_sales,acl_cnwls_mpartner_sales,model_cnwls_mpartner_sales,,1,1,1,1
+acl_cnwls_mpartner_nnm1,acl_cnwls_mpartner_nnm1,model_cnwls_mpartner_nnm1,,1,1,1,1
+acl_cnwls_mpartner_octg,acl_cnwls_mpartner_octg,model_cnwls_mpartner_octg,,1,1,1,1
+acl_cnwls_mpartner_customer_crd1,acl_cnwls_mpartner_customer_crd1,model_cnwls_mpartner_customer_crd1,,1,1,1,1
+acl_cnwls_mpartner_ocrg,acl_cnwls_mpartner_ocrg,model_cnwls_mpartner_ocrg,,1,1,1,1
+acl_cnwls_mpartner_customer,acl_cnwls_mpartner_customer,model_cnwls_mpartner_customer,,1,1,1,1
+acl_cnwls_mpartner_customer_ocpr,acl_cnwls_mpartner_customer_ocpr,model_cnwls_mpartner_customer_ocpr,,1,1,1,1

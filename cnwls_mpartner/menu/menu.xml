@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <!-- Top menu item -->
+
+        <menuitem name="B1- Business Partner" groups="cnwls_mpartner_users" web_icon="cnwls_mpartner,static/description/icon.png" id="cnwls_mpartner_menu_root"/>
+
+
+   
+
+         <menuitem sequence="100"  groups="cnwls_mpartner_users" name="[L] ist Customer" id="cnwls_mpartner_menu" parent="cnwls_mpartner_menu_root" />
+        <menuitem sequence="101"  groups="cnwls_mpartner_users" name="Customer" id="cnwls_mpartner_101_menu" parent="cnwls_mpartner_menu" action="cnwls_mpartner_customer_action"/>
+ 
+        <menuitem sequence="200"  groups="cnwls_mpartner_users" name="[S] etting" id="cnwls_mpartner_setting_root" parent="cnwls_mpartner_menu_root"  />
+        <menuitem sequence="201"  groups="cnwls_mpartner_users" name="Series" id="cnwls_mpartner_setting_series" parent="cnwls_mpartner_setting_root" action="cnwls_mpartner_nnm1_action" />
+        <menuitem sequence="202"  groups="cnwls_mpartner_users" name="Sales" id="cnwls_mpartner_setting_sales" parent="cnwls_mpartner_setting_root" action="cnwls_mpartner_sales_action" />
+        <menuitem sequence="203"  groups="cnwls_mpartner_users" name="Group" id="cnwls_mpartner_setting_group" parent="cnwls_mpartner_setting_root" action="cnwls_mpartner_ocrg_action" />
+        <menuitem sequence="204"  groups="cnwls_mpartner_users" name="Payment" id="cnwls_mpartner_setting_payment" parent="cnwls_mpartner_setting_root" action="cnwls_mpartner_octg_action" />
+        
+            
+   </data>
+</odoo>

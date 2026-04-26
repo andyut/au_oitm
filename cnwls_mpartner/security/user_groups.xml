@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="module_cnwls_mpartner" model="ir.module.category">
+            <field name="name">Business Partner Master Data (SAP)</field>
+        </record>
+
+        <!-- 
+     GROUP USER 
+ -->
+        <record id="cnwls_mpartner_users" model="res.groups">
+            <field name="category_id" ref="cnwls_mpartner.module_cnwls_mpartner" />
+            <field name="name"> Users</field>
+            <field name="users" eval="[(4, ref('base.user_root'))]" />
+            <field name="comment"> Users </field>
+        </record>
+
+
+        <!--
+    RULES 
+--> 
+
+        <record id="cnwls_mpartner_customer_rule" model="ir.rule">
+            <field name="name">CNWLS Business Partner Rule</field>
+            <field name="model_id" ref="model_cnwls_mpartner_customer" />
+            <field name="domain_force">
+                ['|',('company_id','=',False),('company_id','in', user.company_ids.ids)]
+            </field>
+        </record>
+        <record id="cnwls_mpartner_nnm1_rule" model="ir.rule">
+            <field name="name">CNWLS Business Partner series Rule</field>
+            <field name="model_id" ref="model_cnwls_mpartner_nnm1" />
+            <field name="domain_force">
+                ['|',('company_id','=',False),('company_id','in', user.company_ids.ids)]
+            </field>
+        </record>
+        <record id="cnwls_mpartner_ocrg_rule" model="ir.rule">
+            <field name="name">CNWLS Business Partner group Rule</field>
+            <field name="model_id" ref="model_cnwls_mpartner_ocrg" />
+            <field name="domain_force">
+                ['|',('company_id','=',False),('company_id','in', user.company_ids.ids)]
+            </field>
+        </record>
+        <record id="cnwls_mpartner_octg_rule" model="ir.rule">
+            <field name="name">CNWLS Business Partner payment term Rule</field>
+            <field name="model_id" ref="model_cnwls_mpartner_octg" />
+            <field name="domain_force">
+                ['|',('company_id','=',False),('company_id','in', user.company_ids.ids)]
+            </field>
+        </record>
+        <record id="cnwls_mpartner_sales_rule" model="ir.rule">
+            <field name="name">CNWLS Business Partner sales Rule</field>
+            <field name="model_id" ref="model_cnwls_mpartner_sales" />
+            <field name="domain_force">
+                ['|',('company_id','=',False),('company_id','in', user.company_ids.ids)]
+            </field>
+        </record>  
+        <record id="cnwls_mpartner_customer_ocpr_rule" model="ir.rule">
+            <field name="name">CNWLS Business Partner contact Rule</field>
+            <field name="model_id" ref="model_cnwls_mpartner_customer_ocpr" />
+            <field name="domain_force">
+                ['|',('company_id','=',False),('company_id','in', user.company_ids.ids)]
+            </field>
+        </record>  
+        <record id="cnwls_mpartner_customer_crd1_rule" model="ir.rule">
+            <field name="name">CNWLS Business Partner Outlet Rule</field>
+            <field name="model_id" ref="model_cnwls_mpartner_customer_crd1" />
+            <field name="domain_force">
+                ['|',('company_id','=',False),('company_id','in', user.company_ids.ids)]
+            </field>
+        </record>  
+        <!--
+   END OF  RULES 
+-->
+
+    </data>
+</odoo>

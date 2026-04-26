@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="cnwls_mpartner_ocrg_tree">
+            <field name="name">cnwls.mpartner.ocrg.tree</field>
+            <field name="model">cnwls.mpartner.ocrg</field>
+            <field name="arch" type="xml">
+                <list string="Partner Group List" editable="top"   >
+                    <field name="company_id" readonly="1" />
+                    <field name="name"  /> 
+                    <field name="groupcode"  />   
+                </list>
+            </field>
+        </record>
+         
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="cnwls_mpartner_ocrg_action">
+            <field name="name">Partner Group List</field>
+            <field name="res_model">cnwls.mpartner.ocrg</field>
+            <field name="view_mode">list</field>
+        </record>
+
+
+    </data>
+</odoo>

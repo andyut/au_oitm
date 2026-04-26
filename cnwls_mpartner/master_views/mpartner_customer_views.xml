@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="cnwls_mpartner_customer_tree" model="ir.ui.view">
+            <field name="name">cnwls.mpartner.customer.tree</field>
+            <field name="model">cnwls.mpartner.customer</field>
+            <field name="arch" type="xml">
+                <list string="Business Partner"
+                >
+                    <field name="cardcode" />
+                    <field name="cardname" />
+                    <field name="groupcode" />
+                    <field name="salesperson" />
+                    <field name="arperson" />
+                    <field name="creditlimit" />
+                    <field name="npwp" />
+                </list>
+            </field>
+        </record>
+
+
+        <record id="cnwls_mpartner_customer_form" model="ir.ui.view">
+            <field name="name">cnwls.mpartner.customer.form</field>
+            <field name="model">cnwls.mpartner.customer</field>
+            <field name="arch" type="xml">
+                <form string="Business Partner">
+                    <header>
+                        <button name="update2SAP" string="Update to SAP" type="object"
+                            class="btn-primary" invisible="istatus != 'update'" />
+                        <button name="create2SAP" string="Create to SAP" type="object"
+                            class="btn-primary" invisible="istatus != 'new'" />
+
+                    </header>
+
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="cardname" />
+                            </h1>
+                            <h2>
+                                <field name="itextstatus" readonly="1" force_save="1" />
+                            </h2>
+                            <h2>
+                                <field name="cardcode" readonly="1" force_save="1" />
+                            </h2>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="iseries" options="{'no_create': True}" />
+                                <field name="groupcode" options="{'no_create': True}" />
+                                <field name="salesperson" options="{'no_create': True}" />
+                                <field name="istatus" invisible="1" />
+                            </group>
+                            <group>
+
+                                <field name="npwp" />
+                                <field name="npwpaddress" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="General">
+                                <group>
+                                    <group>
+                                        <field name="phone1" />
+                                        <field name="phone2" />
+                                        <field name="cellular" />
+                                        <field name="fax" />
+                                        <field name="email" />
+                                        <field name="website" />
+                                        <field name="bpactive" />
+                                        <field name="validremarks" />
+                                        <field name="frozenremarks" />
+                                    </group>
+                                    <group>
+
+                                        <field name="nik" />
+                                        <field name="kartukeluarga" />
+                                        <field name="siup" />
+                                        <field name="tdp" />
+                                        <field name="skd" />
+                                        <field name="akte" />
+                                        <field name="nib" /> 
+                                    </group>
+                                </group>
+                            </page>
+
+
+                            <page string="Contact">
+
+                                <group string="Contact">
+                                    <field name="ocpr_ids" nolabel="1">
+                                        <list editable="top">
+
+                                            <field name="name" />
+                                            <field name="contactcode" invisible="1" />
+                                            <field name="position" />
+                                            <field name="address" />
+                                            <field name="tel1" />
+                                            <field name="tel2" />
+                                            <field name="selular" />
+                                            <field name="email" />
+                                            <field name="notes1" />
+                                            <field name="ktp" />
+                                            <field name="npwp" />
+
+                                        </list>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Outlet">
+
+                                <group string="Outlet">
+                                    <field name="crd1_ids" nolabel="1">
+                                        <list editable="top"
+                                            decoration-success="itype=='bo_ShipTo'"
+                                            decoration-primary="itype=='bo_BillTo'">
+                                            <field name="itype" />
+                                            <field name="name" />
+                                            <field name="street" />
+                                            <field name="billarea" />
+                                        </list>
+                                    </field>
+                                </group>
+                            </page>
+
+ 
+                            <page string="Receivable">
+                                <group>
+                                    <group string="Info">
+                                        <field name="paymentgroup" options="{'no_create': True}" />
+                                        <field name="tukarfaktur" />
+                                        <field name="creditlimit" />
+                                        <field name="lock_limit" />
+                                        <field name="arperson" />
+                                    </group>
+                                    <group string="note">
+                                        <field name="notes" nolabel="1" />
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="IDU_SpecialCustomer" />
+                                    <field name="IDU_Sc_OpenInvoice" />
+                                    <field name="IDU_AktaTerakhir" />
+                                    <field name="IDU_StatusTempatUsaha" />
+                                    <field name="IDU_BasedOnTOP" />
+                                </group>
+                            </page>
+
+                            <page string="Finance">
+                                <group>
+                                    <group string="Status">
+                                        <field name="lock_limit" />
+                                        <field name="paymentgroup" options="{'no_create': True}" />
+                                    </group>
+                                    <group string="Credit">
+                                        <field name="creditlimit" />
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="debug">
+                                <field name="resulttxt" nolabel="1" />
+                            </page>
+                            <page string="debug2">
+                                <field name="resulttxt2" nolabel="1" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="cnwls_mpartner_customer_action" model="ir.actions.act_window">
+            <field name="name">Business Partner</field>
+            <field name="res_model">cnwls.mpartner.customer</field>
+            <field name="view_mode">list,form</field>
+
+        </record>
+
+
+    </data>
+</odoo>
