@@ -4,8 +4,6 @@
 from odoo import models, fields, api 
 from odoo.modules import get_modules, get_module_path
 from odoo.exceptions import UserError
-
- 
 from datetime import datetime
 import requests
 import base64
